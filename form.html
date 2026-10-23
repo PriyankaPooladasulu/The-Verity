@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>THE VERITY | Reservation form</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <h1>THE VERITY</h1>
+            <p>~ a normal day or a special day, make it memorable with us!</p>
+            <h2>Reservation Form</h2>
+        </header>
+        <main>
+            <form action="/reserve" method="post" id="reservation-form">
+                <fieldset>
+                    <legend>1.Booking Details</legend>
+                    <div class="field">
+                    <label for="name">Name(Booking Person):</label>
+                    <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="field">
+                    <label for="age">Age(Booking Person):</label>
+                    <input type="number" id="age" name="age" min="18" max="100" required>
+                    </div>
+
+                    <div class="field">
+                    <label for="email">Email Id(Booking Person):</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="field">
+                    <label for="phone">Phone number(Booking Person):</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 xxx-yyy-zzzz" required>
+                    </div>
+
+                    <div class="field">
+                    <label for="members">Number of Members</label>
+                    <input type="number" id="members" name="members" value="0" min="0" max="20" required>
+                    </div>
+                    
+                    <div id="member-details"></div>
+                         
+                    <div class="field">
+                    <label for="dov">Date of Visit</label>
+                    <input type="date" id="dov" name="dov" required>
+                    </div>
+
+                    <div class="field">
+                    <label for="ts">Time Slot</label>
+                    <select id="ts" name="ts" required>
+                        <option value="">-- Select a slot --</option>
+                        <option value="00-03">12:00 AM - 03:00 AM</option>
+                        <option value="03-06">03:00 AM - 06:00 AM</option>
+                        <option value="06-09">06:00 AM - 09:00 AM</option>
+                        <option value="09-12">09:00 AM - 12:00 PM</option>
+                        <option value="12-15">12:00 PM - 03:00 PM</option>
+                        <option value="15-18">03:00 PM - 06:00 PM</option>
+                        <option value="18-21">06:00 PM - 09:00 PM</option>
+                        <option value="21-24">09:00 PM - 12:00 AM</option>
+                    </select>
+                    </div>
+                        
+                    <div class="field">
+                    <label for="occ">Occasion</label>
+                    <input type="text" id="occ" name="occ" placeholder="birthday,anniversary,etc">
+                    </div>
+
+                </fieldset>
+                <fieldset>
+                    <legend>2.Dietary Preferences</legend>
+                    <div class="choices">
+                    
+                        <div class="choice">
+                        <input type="radio" id="veg" name="diet" value="veg" required>
+                        <label for="veg">Vegetarian</label>
+                        </div>
+        
+                        <div class="choice">
+                        <input type="radio" id="vegan" name="diet" value="vegan">
+                        <label for="vegan">Vegan</label>
+                        </div>
+                    
+                        <div class="choice">
+                        <input type="radio" id="nonveg" name="diet" value="non-veg">
+                        <label for="nonveg">Non-Vegetarian</label>
+                        </div>
+                    
+                        <div class="choice">
+                        <input type="radio" id="egg" name="diet" value="egg">
+                        <label for="egg">Eggetarian</label>
+                        </div>
+                    
+                        <div class="choice">
+                        <input type="radio" id="other" name="diet" value="others">
+                        <label for="other">Others</label>
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label for="other-op">If other, Please Specify:</label>
+                        <input type="text" id="other-op" name="others">
+                    </div>
+                
+                    <div class="field">
+                        <label for="all">Allergies/Food Restrictions:</label>
+                        <input type="text" id="all" name="allergies" class="wide" placeholder="Allergic to sugar,milk,curd,etc">
+                    </div>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>3. Public Dining Themes</legend>
+                    <input type="radio" id="casual" name="dining" value="casual" required>
+                    <label for="casual">Casual Dine</label>
+                    <br>
+    
+                    <input type="radio" id="luxury" name="dining" value="luxury-royal">
+                    <label for="luxury">Luxury / Royal Dine</label>
+                    <br>
+    
+                    <input type="radio" id="spooky" name="dining" value="halloween-spooky">
+                    <label for="spooky">Halloween / Spooky Dine</label>
+                    <br>
+    
+                    <input type="radio" id="undersea" name="dining" value="undersea">
+                    <label for="undersea">Undersea Dine</label>
+                    <br>
+    
+                    <input type="radio" id="heritage" name="dining" value="traditional-heritage">
+                    <label for="heritage">Traditional / Heritage Dine</label>
+                    <br>
+    
+                    <input type="radio" id="fantasy" name="dining" value="fantasy-world">
+                    <label for="fantasy">Fantasy World Dine</label>
+                    <br>
+    
+                    <input type="radio" id="space" name="dining" value="space">
+                    <label for="space">Space Dine</label>
+                    <br>
+    
+                    <input type="radio" id="moon" name="dining" value="moon">
+                    <label for="moon">Moon Dine</label>
+                    <br>
+    
+                    <input type="radio" id="garden" name="dining" value="garden">
+                    <label for="garden">Garden Dine</label>
+                    <br>
+    
+                    <input type="radio" id="terrace" name="dining" value="terrace">
+                    <label for="terrace">Terrace Dine</label>
+                </fieldset>
+                <fieldset>
+                <legend>4. Private Igloo / Dome Dining</legend>
+                <p>Each private dome seats a maximum of 4 guests (including you).</p>
+                
+                <input type="radio" id="rain" name="dining" value="private-rain">
+                <label for="rain">Rain Dine</label>
+                <br>
+
+                <input type="radio" id="snow" name="dining" value="private-snow">
+                <label for="snow">Snow Dine</label>
+                <br>
+
+                <input type="radio" id="floral" name="dining" value="private-floral">
+                <label for="floral">Floral Dine</label>
+                <br>
+
+                <input type="radio" id="love" name="dining" value="private-love">
+                <label for="love">Love Dine</label>
+                <br>
+
+                <input type="radio" id="candle" name="dining" value="private-candlelight">
+                <label for="candle">Candle Light Dine</label>
+            </fieldset>
+            <fieldset>
+                <legend>5.Cuisine Selection</legend>
+                <p>Select one or more</p>
+                
+                <input type="checkbox" id="menu" name="cuisine" value="restaurant-menu">
+                <label for="menu">Restaurant Menu</label>
+                <br>
+
+                <input type="checkbox" id="italian" name="cuisine" value="italian-menu">
+                <label for="italian">Italian Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="indian" name="cuisine" value="indian-menu">
+                <label for="indian">Indian Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="japanese" name="cuisine" value="japanese">
+                <label for="japanese">Japanese Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="chinese" name="cuisine" value="chinese-menu">
+                <label for="chinese">Chinese Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="french" name="cuisine" value="french-menu">
+                <label for="french">French Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="korean" name="cuisine" value="korean-menu">
+                <label for="korean">Korean Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="british" name="cuisine" value="british-menu">
+                <label for="british">British Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="thai" name="cuisine" value="thai-menu">
+                <label for="thai">Thai Cuisine</label>
+                <br>
+
+                <input type="checkbox" id="mexican" name="cuisine" value="mexican-menu">
+                <label for="mexican">Mexican Cuisine</label>
+                <br>
+            </fieldset>
+            <fieldset>
+                <legend>6.Add-ons</legend>
+                <p>Tick an add-on and tell us what you need.</p>
+
+                <input type="checkbox" id="ad-cake" name="addons" value="cake">
+                <label for="ad-cake">Customised Cake</label>
+                <br>
+                <textarea id="cake-notes" name="cake-note" rows="2" placeholder="flavor,size,message on cake,etc"></textarea>
+                <br>
+
+                <input type="checkbox" id="ad-bev" name="addons" value="bev">
+                <label for="ad-bev">Beverage Upgrades</label>
+                <br>
+                <textarea id="bevs" name="beverage" rows="2" placeholder="vodka,tequila,beer,wine,etc"></textarea>
+                <br>
+                <small>(only for those who are 21 years or above)</small>
+                <br>
+                <br>
+
+                <input type="checkbox" id="ad-gift" name="addons" value="gift">
+                <label for="ad-gift">Customised Gifts</label>
+                <br>
+                <textarea id="presents" name="cgifts" rows="2" placeholder="flowers,keychains,etc"></textarea>
+                <br>
+
+                <input type="checkbox" id="ad-photo" name="addons" value="photo">
+                <label for="ad-photo">Photoshoots</label>
+                <br>
+                <textarea id="shoots" name="pshoots" rows="2" placeholder="Photos,videos,etc"></textarea>
+                <br>
+
+                <input type="checkbox" id="soundtrack" name="addons" value="sounds">
+                <label for="soundtrack">Customised Soundtrack</label>
+                <br>
+                <textarea id="music" name="smusic" rows="2" placeholder="list of soundtrack with details/type of genre"></textarea>
+                <br>
+            </fieldset>
+            <fieldset>
+                <legend>7. Dining Packages</legend>
+                <p>Packages bundle add-ons and services. Choose "No Package" to pick items individually.</p>
+
+                <input type="radio" id="pkg-none" name="package" value="none" checked>
+                <label for="pkg-none">No Package</label>
+                <br>
+
+                <input type="radio" id="pkg-birthday" name="package" value="birthday">
+                <label for="pkg-birthday">Birthday Package</label>
+                <ul>
+                    <li>Customised cake</li>
+                    <li>Customised present</li>
+                    <li>Birthday soundtrack</li>
+                    <li>Photobooth access</li>
+                    <li>Mini photoshoot</li>
+                </ul>
+
+                <input type="radio" id="pkg-farewell" name="package" value="farewell">
+                <label for="pkg-farewell">Farewell Package</label>
+                <ul>
+                    <li>Customised cake with farewell message</li>
+                    <li>Memento present</li>
+                    <li>Beverage upgrade</li>
+                    <li>Photobooth access</li>
+                </ul>
+
+                <input type="radio" id="pkg-anniversary" name="package" value="anniversary">
+                <label for="pkg-anniversary">Anniversary Package</label>
+                <ul>
+                    <li>Customised cake</li>
+                    <li>Private dome recommended</li>
+                    <li>Couple photoshoot</li>
+                    <li>Romantic soundtrack</li>
+                    <li>Beverage upgrade</li>
+                </ul>
+
+                <input type="radio" id="pkg-corporate" name="package" value="corporate">
+                <label for="pkg-corporate">Corporate Meeting Package</label>
+                <ul>
+                    <li>Reserved group seating</li>
+                    <li>Pre-selected cuisine menu</li>
+                    <li>Beverage upgrade</li>
+                    <li>Quiet background soundtrack</li>
+                </ul>
+
+                <input type="radio" id="pkg-wedding" name="package" value="wedding">
+                <label for="pkg-wedding">Wedding Package</label>
+                <ul>
+                    <li>Customised wedding cake</li>
+                    <li>Full photoshoot</li>
+                    <li>Custom soundtrack and DJ ramp</li>
+                    <li>Photobooth access</li>
+                    <li>Beverage upgrade</li>
+                    <li>Customised presents for guests</li>
+                </ul>
+
+                <input type="radio" id="pkg-bachelor" name="package" value="bachelor-party">
+                <label for="pkg-bachelor">Bachelor Party Package</label>
+                <ul>
+                    <li>DJ ramp access</li>
+                    <li>Beverage upgrade</li>
+                    <li>Swimming pool access</li>
+                    <li>Photobooth access</li>
+                    <li>Party soundtrack</li>
+                </ul>
+
+                <input type="radio" id="pkg-honeymoon" name="package" value="honeymoon">
+                <label for="pkg-honeymoon">Honeymoon Package</label>
+                <ul>
+                    <li>Private dome dining</li>
+                    <li>Customised cake</li>
+                    <li>Couple photoshoot</li>
+                    <li>Customised present</li>
+                    <li>Romantic soundtrack</li>
+                    <li>Beverage upgrade</li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>8. Additional Services</legend>
+
+                <input type="checkbox" id="svc-booth" name="services" value="photobooth">
+                <label for="svc-booth">Photobooth</label>
+                <br>
+
+                <input type="checkbox" id="svc-dj" name="services" value="dj-ramp">
+                <label for="svc-dj">DJ Ramp</label>
+                <br>
+
+                <input type="checkbox" id="svc-pool" name="services" value="swimming-pool">
+                <label for="svc-pool">Swimming Pool</label>
+                <br>
+
+                <input type="checkbox" id="pool-waiver" name="pool_waiver" value="agreed">
+                <label for="pool-waiver">I understand pool use is at my own risk, and children must be supervised by an adult at all times.</label>
+            </fieldset>
+            <fieldset>
+                <legend>9. Feedback or Queries</legend>
+
+                <label for="feedback">Anything else you'd like to tell us?</label>
+                <br>
+                <textarea id="feedback" name="feedback" rows="5" maxlength="500" placeholder="Type your feedback or question here..."></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Confirmation</legend>
+
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the cancellation and booking policy.</label>
+                <p><small>This is a reservation request. We will confirm availability by email or phone.</small></p>
+            </fieldset>
+            <br>
+                    <button type="submit">Reserve your seat!</button>
+                    <button type="reset">Clear form</button>
+            </form>
+        </main>
+        <footer><p>Thankyou for Choosing us!</p></footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
