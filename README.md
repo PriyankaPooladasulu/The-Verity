@@ -65,11 +65,9 @@ The-Verity/
 **1. Clone the repository**
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/PriyankaPooladasulu/The-Verity.git
 cd The-Verity
 ```
-
-Replace `YOUR_REPOSITORY_URL` with your actual GitHub repository URL.
 
 **2. Install the dependencies**
 
